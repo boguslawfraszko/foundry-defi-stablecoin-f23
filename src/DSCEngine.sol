@@ -70,6 +70,7 @@ contract DSCEngine is ReentrancyGuard {
 
     uint256 private constant LIQUIDATION_THRESHOLD = 50; // This means you need to be 200% over-collateralized
     uint256 private constant LIQUIDATION_BONUS = 10; // This means you get assets at a 10% discount when liquidating
+    uint256 private constant LIQUIDATION_PRECISION = 100;
     uint256 private constant MIN_HEALTH_FACTOR = 1e18;
     uint256 private constant PRECISION = 1e18;
     uint256 private constant ADDITIONAL_FEED_PRECISION = 1e10;
@@ -483,6 +484,10 @@ contract DSCEngine is ReentrancyGuard {
 
     function getLiquidationBonus() external pure returns (uint256) {
         return LIQUIDATION_BONUS;
+    }
+
+    function getLiquidationPrecision() external pure returns (uint256) {
+        return LIQUIDATION_PRECISION;
     }
 
     function getMinHealthFactor() external pure returns (uint256) {
