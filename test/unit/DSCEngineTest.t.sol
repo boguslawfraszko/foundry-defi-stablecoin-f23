@@ -157,7 +157,7 @@ contract DSCEngineTest is StdCheats, Test {
     }
 
     function testRevertsWithUnapprovedCollateral() public {
-        ERC20Mock randToken = new ERC20Mock("RAN", "RAN", user, 100e18);
+        ERC20Mock randToken = new ERC20Mock(); //new ERC20Mock("RAN", "RAN", user, 100e18);
         vm.startPrank(user);
         vm.expectRevert(
             abi.encodeWithSelector(

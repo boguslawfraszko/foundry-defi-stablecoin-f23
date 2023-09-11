@@ -50,9 +50,10 @@ contract DecentralizedStableCoin is ERC20Burnable, Ownable {
     Related code changes can be viewed in this commit:
     https://github.com/OpenZeppelin/openzeppelin-contracts/commit/13d5e0466a9855e9305119ed383e54fc913fdc60
     */
-    constructor(
-        address initialOwner
-    ) ERC20("DecentralizedStableCoin", "DSC") Ownable(_msgSender()) {}
+    constructor()
+        ERC20("DecentralizedStableCoin", "DSC")
+        Ownable(_msgSender())
+    {}
 
     function burn(uint256 _amount) public override onlyOwner {
         uint256 balance = balanceOf(msg.sender);
