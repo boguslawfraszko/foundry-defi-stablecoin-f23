@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: MIT
 
-pragma solidity 0.8.19;
+pragma solidity 0.8.21;
 
 import {MockV3Aggregator} from "../mocks/MockV3Aggregator.sol";
 import {Test, console} from "forge-std/Test.sol";
@@ -20,7 +20,10 @@ contract OracleLibTest is StdCheats, Test {
 
     function testGetTimeout() public {
         uint256 expectedTimeout = 3 hours;
-        assertEq(OracleLib.getTimeout(AggregatorV3Interface(address(aggregator))), expectedTimeout);
+        assertEq(
+            OracleLib.getTimeout(AggregatorV3Interface(address(aggregator))),
+            expectedTimeout
+        );
     }
 
     // Foundry Bug - I have to make staleCheckLatestRoundData public
